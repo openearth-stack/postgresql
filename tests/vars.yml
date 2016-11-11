@@ -1,7 +1,7 @@
 ---
 
 postgresql_version: 9.5
-postgresql_data_directory: /var/data/openearth
+# postgresql_data_directory: /var/data/openearth
 
 postgresql_databases:
   - name: foobar
