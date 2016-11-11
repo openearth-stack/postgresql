@@ -10,12 +10,12 @@ This has been tested on Ansible 1.9.4 and higher.
 To install:
 
 ```
-ansible-galaxy install ANXS.postgresql
+ansible-galaxy install openearth-stack.postgresql
 ```
 
 #### Dependencies
 
-- ANXS.monit ([Galaxy](https://galaxy.ansible.com/list#/roles/502)/[GH](https://github.com/ANXS/monit)) if you want monit protection (in that case, you should set `monit_protection: true`)
+- ANXS.monit ([Galaxy](https://galaxy.ansible.com/list#/roles/502)/[GH](https://github.com/ANXS/monit)) if you want monit protection (in that case, you should set `monit_protection: true`) 
 
 
 #### Variables
