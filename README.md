@@ -1,4 +1,4 @@
-## ANXS - PostgreSQL [![Build Status](https://travis-ci.org/ANXS/postgresql.png?branch=master)](https://travis-ci.org/ANXS/postgresql)
+## ANXS - PostgreSQL [![Build Status](https://travis-ci.org/openearth-stack/postgresql.png?branch=master)](https://travis-ci.org/openearth-stack/postgresql)
 
 Ansible role which installs and configures PostgreSQL, extensions, databases and users.
 
