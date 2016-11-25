@@ -1,9 +1,25 @@
 ---
 
-- hosts: all
+- name: Play without tags
+  hosts: all
   remote_user: root
   become: yes
   vars_files:
     - ./vars.yml
   roles:
     - postgresql
+
+
+
+- name: Play With tags
+  hosts: all
+  remote_user: root
+  become: yes
+  vars_files:
+    - ./vars.yml
+  roles:
+    - postgresql
+  tags:
+    - create
+
+

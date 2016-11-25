@@ -1,4 +1,5 @@
 # file: postgresql/tasks/extensions/postgis.yml
+# editied libgeos-c1 to c1v5 because of a dependency issue in postgres 9.6
 
 - name: PostgreSQL | Extensions | Make sure the postgis extensions are installed
   apt:
@@ -7,7 +8,8 @@
     update_cache: yes
     cache_valid_time: "{{apt_cache_valid_time | default (3600)}}"
   with_items:
-    - libgeos-c1
+    - libgeos-c1v5
+    - postgis
     - "postgresql-{{postgresql_version}}-postgis-{{postgresql_ext_postgis_version}}"
     - "postgresql-{{postgresql_version}}-postgis-scripts"
   notify:
