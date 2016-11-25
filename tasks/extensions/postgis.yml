@@ -3,7 +3,7 @@
 
 - name: "Install libgeos for old ubuntu systems"
   apt:
-    name: libgeos_v1
+    name: libgeos
     state: present
     update_cache: yes
     cache_valid_time: "{{apt_cache_valid_time | default (3600)}}"
