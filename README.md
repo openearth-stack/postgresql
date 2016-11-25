@@ -1,4 +1,4 @@
-## ANXS - PostgreSQL [![Build Status](https://travis-ci.org/ANXS/postgresql.png?branch=master)](https://travis-ci.org/ANXS/postgresql)
+## ANXS - PostgreSQL [![Build Status](https://travis-ci.org/openearth-stack/postgresql.png?branch=master)](https://travis-ci.org/openearth-stack/postgresql)
 
 Ansible role which installs and configures PostgreSQL, extensions, databases and users.
 
@@ -10,12 +10,12 @@ This has been tested on Ansible 1.9.4 and higher.
 To install:
 
 ```
-ansible-galaxy install ANXS.postgresql
+ansible-galaxy install openearth-stack.postgresql
 ```
 
 #### Dependencies
 
-- ANXS.monit ([Galaxy](https://galaxy.ansible.com/list#/roles/502)/[GH](https://github.com/ANXS/monit)) if you want monit protection (in that case, you should set `monit_protection: true`)
+- ANXS.monit ([Galaxy](https://galaxy.ansible.com/list#/roles/502)/[GH](https://github.com/ANXS/monit)) if you want monit protection (in that case, you should set `monit_protection: true`) 
 
 
 #### Variables
@@ -29,6 +29,8 @@ postgresql_ctype: 'en_US.UTF-8'
 
 postgresql_admin_user: "postgres"
 postgresql_default_auth_method: "trust"
+
+postgresql_service_enabled: false # should the service be enabled, default is true
 
 postgresql_cluster_name: "main"
 postgresql_cluster_reset: false

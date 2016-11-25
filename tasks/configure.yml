@@ -152,10 +152,17 @@
     group: "{{ postgresql_service_group }}"
     mode: u=rwX,g=rwXs,o=rx
 
+- name: PostgreSQL | Enable service
+  service:
+    name: "{{ postgresql_service_name }}"
+    enabled: yes
+  when: "{{ postgresql_service_enabled | bool }}"
+
 - name: PostgreSQL | Restart PostgreSQL
   service:
     name: "{{ postgresql_service_name }}"
     state: restarted
+  ignore_errors: yes
   when: postgresql_configuration_pt1.changed or postgresql_configuration_pt2.changed or postgresql_configuration_pt3.changed or postgresql_systemd_custom_conf.changed
 
 - name: PostgresSQL | Copy the run script for the docker container
