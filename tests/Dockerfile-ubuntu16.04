@@ -18,6 +18,8 @@ ADD postgresql/  /tmp/postgresql
 
 # Run our play
 RUN echo localhost > inventory
+RUN /bin/ls
+RUN /bin/pwd
 RUN ansible-playbook -i inventory --become -c local tests/playbook.yml
 
 EXPOSE 5432
