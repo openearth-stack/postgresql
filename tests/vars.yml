@@ -1,22 +1,18 @@
+#alter this file to accomodate your needs
+
 ---
 
-postgresql_version: 9.5
-postgresql_data_directory: /var/data/openearth
+postgresql_version: 9.6
+
 
 postgresql_databases:
-  - name: foobar
-    owner: baz
+  - name: openearth
+    owner: openearth
 
 postgresql_users:
-  - name: baz
-    pass: pass
-
-  - name: zab
-    pass: md51a1dc91c907325c69271ddf0c944bc72
-    encrypted: yes
-
-  - name: zabaz
+  - name: openearth
+    pass: abc
 
 postgresql_user_privileges:
-  - name: baz
-    db: foobar
+  - name: openearth
+    db: openearth

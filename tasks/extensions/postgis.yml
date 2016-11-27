@@ -1,4 +1,24 @@
 # file: postgresql/tasks/extensions/postgis.yml
+# editied libgeos-c1 to c1v5 because of a dependency issue in postgres 9.6
+
+# - name: "Install libgeos for old ubuntu systems"
+#   apt:
+#     name: libgeos-c1
+#     state: present
+#     update_cache: yes
+#     cache_valid_time: "{{apt_cache_valid_time | default (3600)}}"
+#   when: (ansible_distribution == "Ubuntu" and ansible_distribution_version <= "16.04") or
+#         (ansible_distribution == "Debian" and ansible_distribution_major_version <= "7")
+
+
+# - name: "Install libgeos for newer Ubuntu systems"
+#   apt:
+#     name: libgeos_c1v5
+#     state: present
+#     update_cache: yes
+#     cache_valid_time: "{{apt_cache_valid_time | default (3600)}}"
+#   when: (ansible_distribution == "Ubuntu" and ansible_distribution_version > "16.04") or
+#         (ansible_distribution == "Debian" and ansible_distribution_major_version > "7")
 
 - name: PostgreSQL | Extensions | Make sure the postgis extensions are installed
   apt:
@@ -7,7 +27,7 @@
     update_cache: yes
     cache_valid_time: "{{apt_cache_valid_time | default (3600)}}"
   with_items:
-    - libgeos-c1
+    - postgis
     - "postgresql-{{postgresql_version}}-postgis-{{postgresql_ext_postgis_version}}"
     - "postgresql-{{postgresql_version}}-postgis-scripts"
   notify:

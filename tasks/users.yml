@@ -4,6 +4,8 @@
   service:
     name: "{{ postgresql_service_name }}"
     state: started
+  tags:
+    - create
 
 - name: PostgreSQL | Make sure the PostgreSQL users are present
   postgresql_user:
@@ -17,3 +19,6 @@
   become_user: "{{postgresql_admin_user}}"
   with_items: "{{postgresql_users}}"
   when: postgresql_users|length > 0
+  tags:
+    - create
+

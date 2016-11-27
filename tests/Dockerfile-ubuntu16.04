@@ -1,17 +1,28 @@
 FROM ubuntu:16.04
-MAINTAINER OpenEarth
+MAINTAINER Maarten
 
 # Setup system with minimum requirements + ansible
+# install ansible from ubuntu repo because it solved dependency issue er
+# added sudo package to run as postgres user
+# Altered the startup CMD for the container
+
+
 RUN apt-get update -qq && \
     apt-get install -qq python-apt python-pycurl python-pip python-dev \
-                        libffi-dev libssl-dev locales && \
-    echo 'en_US.UTF-8 UTF-8' > /var/lib/locales/supported.d/local && \
-    pip install -q ansible==2.0.0.2
-
+                        libffi-dev libssl-dev locales ansible sudo nano
+#    echo 'en_US.UTF-8 UTF-8' > /var/lib/locales/supported.d/local
+#    pip install -q ansible==2.0.0.2
 # Copy our role into the container, using our role name
 WORKDIR /tmp/postgresql
-COPY  .  /tmp/postgresql
+ADD postgresql  /tmp/postgresql
+ADD .  /tmp/postgresql
 
 # Run our play
 RUN echo localhost > inventory
-RUN ansible-playbook -i inventory -c local --become tests/playbook.yml
+RUN /bin/ls
+RUN /bin/pwd
+RUN ansible-playbook -i inventory --become -c local tests/playbook.yml
+
+EXPOSE 5432
+
+CMD ["./run.sh"]
