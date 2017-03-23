@@ -44,7 +44,7 @@ postgresql_users: []
 postgresql_user_privileges: []
 
 # pg_hba.conf
-# added 172.18.0.0/16 as trusted hosts
+# added 172.0.0.0/8 as trusted hosts
 postgresql_pg_hba_default:
   - { type: local, database: all, user: '{{ postgresql_admin_user }}', address: '', method: '{{ postgresql_default_auth_method }}', comment: '' }
   - { type: local, database: all, user: all, address: '',             method: '{{ postgresql_default_auth_method }}', comment: '"local" is for Unix domain socket connections only' }
