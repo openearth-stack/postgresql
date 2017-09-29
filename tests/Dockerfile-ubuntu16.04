@@ -6,7 +6,6 @@ MAINTAINER Maarten
 # added sudo package to run as postgres user
 # Altered the startup CMD for the container
 
-
 RUN apt-get update -qq && \
     apt-get install -qq python-apt python-pycurl python-pip python-dev \
                         libffi-dev libssl-dev locales ansible sudo nano
@@ -19,8 +18,8 @@ ADD .  /tmp/postgresql
 
 # Run our play
 RUN echo localhost > inventory
-RUN /bin/ls
-RUN /bin/pwd
+#RUN /bin/ls
+#RUN /bin/pwd
 RUN ansible-playbook -i inventory --become -c local tests/playbook.yml
 
 EXPOSE 5432

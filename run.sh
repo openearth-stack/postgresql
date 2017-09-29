@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -f /var/lib/postgresql/9.6/main/PG_VERSION ]; then
-        echo "The databases are not there."
+        echo "The database is not there."
         echo "I'll create it for you"
         mkdir -p /var/lib/postgresql/9.6/main
         chown postgres /var/lib/postgresql/9.6/main

@@ -12,7 +12,14 @@ postgresql_databases:
 postgresql_users:
   - name: openearth
     pass: abc
+  - name: barman
+    pass: abc
 
 postgresql_user_privileges:
   - name: openearth
     db: openearth
+  - name: barman
+    db: postgres
+    priv: "ALL"
+    role_attr_flags: "REPLICATION" # role attribute flags
+
